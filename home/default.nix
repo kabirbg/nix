@@ -16,8 +16,10 @@
       gimp
       gtk-mac-integration
       libreoffice-bin
+      mutt
       qmk
       ranger
+      ripgrep
       speedtest-cli
       spotify
       tree-sitter
@@ -27,17 +29,15 @@
     programs = {
       aria2.enable = true;
       go.enable = true;
-      helix = {
-        enable = true;
-        defaultEditor = true;
-      };
+      helix.enable = true;
       java.enable = true;
-      neomutt.enable = true;
+      neovim.enable = true;
       pandoc.enable = true;
-      ripgrep.enable = true;
       yt-dlp.enable = true;
+      zathura.enable = true;
     };
 
+    home.stateVersion = "23.05";
   };
 
 }

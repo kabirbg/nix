@@ -1,51 +1,28 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.zsh = {
-    enable = true;
-    prezto.enable = true;
-    enableSyntaxHighlighting = true;
-    enableAutosuggestions = true;
-    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+  home-manager.users.kabir = { pkgs, ... }: {
+    programs.zsh = {
+      enable = true;
+      enableSyntaxHighlighting = true;
+      enableAutosuggestions = true;
+      historySubstringSearch.enable = true;
 
-    /*plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-autosuggestions";
-          rev = "v0.7.0";
-          sha256 = "1g3pij5qn2j7v7jjac2a63lxd97mcsgw6xq6k5p7835q9fjiid98";
-        };
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.fetchFromGithub {
-          owner = "zsh-users";
-          repo = "zsh-syntax-highlighting";
-          rev = "0.7.1";
-          sha256 = "03r6hpb5fy4yaakqm3lbf4xcvd408r44jgpv4lnzl9asp4sb9qc0";
-        };
-      }
-    ];*/
-
-    interactiveShellInit = ''
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh\n";
+      initExtraFirst =  ''
       ${pkgs.fortune}/bin/fortune | ${pkgs.neo-cowsay}/bin/cowthink | ${pkgs.lolcat}/bin/lolcat
-    '';
-
-    historySubstringSearch.enable = true;
-
-    initExtraFirst =  ''
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
     '';
 
-    initExtra = ''
+      initExtra = ''
       # Wasmer
       export WASMER_DIR="/Users/kabir/.wasmer"
       [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+      # Powerlevel10k
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
       # >>> conda initialize >>>
       # !! Contents within this block are managed by 'conda init' !!
@@ -61,16 +38,18 @@
       fi
       unset __conda_setup
       # <<< conda initialize <<<
-
     '';
 
-    shellAliases = {
-      a = "pmset sleepnow";
-      emacs = "emacs -nw";
-      empty = "ls -A ~/.Trash/* && rm -rf ~/.Trash/*";
-      wttr = "curl wttr.in";
-      ytd = "yt-dlp";
-      pseudo = "sudo";
+      envExtra = "EDITOR=${pkgs.helix}";
+
+      shellAliases = {
+        a = "pmset sleepnow";
+        emacs = "emacs -nw";
+        empty = "ls -A ~/.Trash/* && rm -rf ~/.Trash/*";
+        wttr = "curl wttr.in";
+        ytd = "yt-dlp";
+        pseudo = "sudo";
+      };
     };
   };
 }

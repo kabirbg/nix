@@ -3,7 +3,7 @@
 {
   imports = [
     <home-manager/nix-darwin>
-    #./home
+    ./home
     ./brew.nix
   ];
 

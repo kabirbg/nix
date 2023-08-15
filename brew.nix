@@ -8,10 +8,7 @@
       brewfile = true;
     };
 
-    onActivation = {
-      upgrade = true;
-      cleanup = "zap";
-    };
+    onActivation.cleanup = "zap";
 
     taps = [
       "buo/cask-upgrade"

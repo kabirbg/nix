@@ -1,11 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
+  home-manager.users.kabir = { pkgs, ... }: {
     programs.emacs = {
-        enable = true;
-        package = pkgs.emacs-macport;
-        extraPackages = epkgs: [ epkgs.doom ];
-        extraConfig = ''
+      enable = true;
+      package = pkgs.emacs-macport;
+      extraPackages = epkgs: [ epkgs.doom ];
+      extraConfig = ''
           (use-package nix-mode
             :mode ("\\.nix\\'" "\\.nix.in\\'"))
           (use-package nix-drv-mode
@@ -22,5 +23,6 @@
           (global-set-key [C-mouse-4] 'text-scale-increase)
           (global-set-key [C-mouse-5] 'text-scale-decrease)
           '';
-      };
+    };
+  };
 }
