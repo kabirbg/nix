@@ -17,9 +17,10 @@
       gtk-mac-integration
       libreoffice-bin
       mutt
+      qemu
       qmk
-      ranger
       ripgrep
+      rustup
       speedtest-cli
       spotify
       tree-sitter
@@ -31,7 +32,6 @@
       go.enable = true;
       helix.enable = true;
       java.enable = true;
-      neovim.enable = true;
       pandoc.enable = true;
       yt-dlp.enable = true;
       zathura.enable = true;

@@ -40,7 +40,7 @@
       # <<< conda initialize <<<
     '';
 
-      envExtra = "EDITOR=${pkgs.helix}";
+      envExtra = "EDITOR=${pkgs.helix}/bin/hx";
 
       shellAliases = {
         a = "pmset sleepnow";

@@ -12,7 +12,7 @@
   environment = {
     variables.EDITOR = "${pkgs.neovim}";
     pathsToLink = [ "/share/zsh" ];
-    systemPackages = with pkgs; [ neofetch python3Full wget qemu toybox ];
+    systemPackages = with pkgs; [ neofetch neovim python3Full ranger wget toybox ];
     systemPath = [ "/Users/kabir/.emacs.d/bin" "/Users/kabir/node_modules/.bin" "/Library/TeX/texbin" ];
   };
 
