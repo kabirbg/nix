@@ -4,7 +4,6 @@
   home-manager.users.kabir = { pkgs, ... }: {
     programs.emacs = {
       enable = true;
-      package = pkgs.emacs-macport;
       extraPackages = epkgs: [ epkgs.doom ];
       extraConfig = ''
           (use-package nix-mode

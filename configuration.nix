@@ -6,7 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      <home-manager/nix-darwin>
+      ./home
       ./hardware-configuration.nix
     ];
 
@@ -36,37 +38,33 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kabir = {
-    home = "/home/kabir";
-    isNormalUser = true;
+    name = "kabir";
     description = "Kabir Gupta";
-    extraGroups = [ "wheel" "audio" "video" "networkmanager" ];
-    packages = with pkgs; [
-      alacritty
-      dunst
-      libsForQt5.polkit-kde-agent
-      libsForQt5.qtwayland
-      qt6.qtwayland
-      thunderbird
-    ];
+    isNormalUser = true;
+    home = "/home/kabir";
     shell = pkgs.zsh;
+    extraGroups = [ "wheel" "audio" "video" "networkmanager" ];
   };
 
   programs = {
     git.enable = true;
-    zsh.enable = true;
-    hyprland.enable = true;
-    hyprland.xwayland.hidpi = true;
     firefox.enable = true;
     firefox.package = pkgs.firefox-devedition-bin;
+    neovim.enable = true;
+    neovim.defaultEditor = true;
+  };
+
+  fonts = {
+    enableDefaultFonts = true;
+    fonts = with pkgs; [ fira-code ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neofetch
+    vim
     wget
-    neovim
-    helix
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

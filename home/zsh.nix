@@ -40,12 +40,10 @@
       # <<< conda initialize <<<
     '';
 
-      envExtra = "EDITOR=${pkgs.helix}/bin/hx";
+      #envExtra = "EDITOR=${pkgs.helix}/bin/hx";
 
       shellAliases = {
-        a = "pmset sleepnow";
         emacs = "emacs -nw";
-        empty = "ls -A ~/.Trash/* && rm -rf ~/.Trash/*";
         wttr = "curl wttr.in";
         ytd = "yt-dlp";
         pseudo = "sudo";

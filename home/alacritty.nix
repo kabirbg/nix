@@ -23,7 +23,7 @@
 
         cursor.style = "Beam";
 
-        font.normal.family = "MesloLGS NF";
+        font.normal.family = "fira-code";
 
         #shell.program = /usr/local/bin/tmux;
       };
