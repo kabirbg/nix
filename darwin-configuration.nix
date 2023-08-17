@@ -2,9 +2,9 @@
 
 {
   imports = [
-    <home-manager/nix-darwin>
-    ./home
-    ./brew.nix
+    #<home-manager/nix-darwin>
+    #./home
+    #./brew.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -21,6 +21,11 @@
   services = {
     nix-daemon.enable = true;
     skhd.enable = true;
+    yabai = {
+      enable = true;
+      enableScriptingAddition = true;
+      package = /usr/local/bin/yabai; # use homebrew version of yabai because nix version doesn't build (at least for now)
+    };
   };
 
   system = {
