@@ -3,10 +3,10 @@
 {
   imports = [
     ./alacritty.nix
-    ./emacs.nix
+    #./anyrun.nix
+    #./emacs.nix
     ./git.nix
     ./hyprland.nix
-    ./unstable.nix
     ./zsh.nix
   ];
 
@@ -16,6 +16,10 @@
   home.homeDirectory = "/home/kabir";
 
   home.packages = with pkgs; [
+      brave
+      cider
+      cliphist
+      discord
       docker-machine
       dunst
       emacsPackages.doom
@@ -34,13 +38,16 @@
       rustup
       speedtest-cli
       spotify
+      thunderbird
       tree-sitter
+      wofi
+      zoom-us
     ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/hypr/hyprland.conf".source = dotfiles/hyprland;
+    #".config/hypr/hyprland.conf".source = dotfiles/hyprland;
   };
 
   home.sessionVariables = {
@@ -56,6 +63,7 @@
     home-manager.enable = true;
     java.enable = true;
     pandoc.enable = true;
+    waybar.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
   };

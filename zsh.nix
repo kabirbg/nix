@@ -3,8 +3,8 @@
 {
     programs.zsh = {
       enable = true;
-      enableSyntaxHighlighting = true;
       enableAutosuggestions = true;
+      syntaxHighlighting.enable = true;
       historySubstringSearch.enable = true;
 
       initExtraFirst =  ''

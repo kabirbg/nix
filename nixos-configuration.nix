@@ -19,10 +19,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.displayManager.defaultSession = "plasmawayland";
+  services.greetd.enable = true;
 
   # Enable sound.
   services.pipewire = {
@@ -45,15 +42,15 @@
 
   programs = {
     git.enable = true;
-    hyprland.enable = true;
     neovim.enable = true;
     neovim.defaultEditor = true;
+    regreet.enable = true;
     zsh.enable = true;
   };
 
   fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [ fira-code nerdfonts ];
+    enableDefaultPackages = true;
+    packages = with pkgs; [ fira-code nerdfonts ];
   };
 
   # List packages installed in system profile. To search, run:
