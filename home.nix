@@ -4,7 +4,6 @@
   imports = [
     ./alacritty.nix
     #./anyrun.nix
-    #./emacs.nix
     ./git.nix
     ./hyprland.nix
     ./zsh.nix
@@ -21,11 +20,15 @@
       cliphist
       discord
       docker-machine
+      dolphin
       dunst
-      emacsPackages.doom
       fd
       ffmpeg
-      gimp
+      gtklock
+      gtklock-userinfo-module
+      gtklock-powerbar-module
+      gtklock-playerctl-module
+      grim
       libreoffice-qt
       libsForQt5.polkit-kde-agent
       libsForQt5.qtwayland
@@ -36,6 +39,7 @@
       qt6.qtwayland
       ripgrep
       rustup
+      slurp
       speedtest-cli
       spotify
       thunderbird
@@ -56,6 +60,7 @@
 
   programs = {
     aria2.enable = true;
+    emacs.enable = true;
     firefox.enable = true;
     firefox.package = pkgs.firefox-devedition;
     go.enable = true;

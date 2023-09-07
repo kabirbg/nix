@@ -75,6 +75,7 @@ gestures {
 # Example windowrule v2
 # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+windowrule = float, ^(shotman)$
 
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -127,6 +128,8 @@ bind = $mainMod, mouse_up, workspace, e-1
 # Move/resize windows with mainMod + LMB/RMB and dragging
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
+
+bind = $mainMod SHIFT, P, exec, grim -g "$(slurp)"
 '';
     };     
 }
